@@ -3,18 +3,18 @@
 include("../configuration/new_connection.php");
 
 // Coletar os dados do formulário
-$cargo = mysqli_real_escape_string($conn, $_POST['cargo']);
 $nome = mysqli_real_escape_string($conn, $_POST['nome']);
-$email = mysqli_real_escape_string($conn, $_POST['email']);
 $cpf = mysqli_real_escape_string($conn, $_POST['cpf']);
 $data_nascimento = mysqli_real_escape_string($conn, $_POST['data_nascimento']);
-$telefone = mysqli_real_escape_string($conn, $_POST['telefone']);
-$genero = mysqli_real_escape_string($conn, $_POST['genero']);
-$endereco = mysqli_real_escape_string($conn, $_POST['endereco']);
+$cep = mysqli_real_escape_string($conn, $_POST['cep']);
+$codigo_area = mysqli_real_escape_string($conn, $_POST['codigo_area']);
+$numero_celular = mysqli_real_escape_string($conn, $_POST['numero_celular']);
+$endereco_email = mysqli_real_escape_string($conn, $_POST['endereco_email']);
 $senha = mysqli_real_escape_string($conn, $_POST['senha']);
 
+
 // Executar a consulta SQL
-$sql = "INSERT INTO funcionario (cargo, nome, email, cpf, data_nascimento, telefone, genero, endereco, senha) VALUES ('$cargo', '$nome', '$email', '$cpf', '$data_nascimento', '$telefone', '$genero', '$endereco', '$senha')";
+$sql = "INSERT INTO usuario (nome, cpf, data_nascimento, cep, codigo_area, numero_celular, endereco_email, senha) VALUES ('$nome', '$cpf', '$data_nascimento', '$cep', '$codigo_area', '$numero_celular', '$endereco_email', '$senha')";
 
 // Insercao de dados
 if (mysqli_query($conn, $sql)) {

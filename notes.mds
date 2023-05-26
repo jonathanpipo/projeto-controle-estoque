@@ -87,3 +87,23 @@ if (mysqli_query($connect, $SQL)) {
 
   }
   ?>
+
+
+  dashboard
+  
+  <?php
+  $retorno = $_GET["retorno"];
+  if (isset($retorno)) {
+    print(
+      '
+
+          <div class="container justify-content-center mt-5">
+            <div class="alert alert-danger text-center" role="alert">
+              ' . $retorno . '
+         </div>
+          </div>
+         
+          '
+    );
+  }
+  ?>

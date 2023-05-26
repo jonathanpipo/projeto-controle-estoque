@@ -3,11 +3,11 @@
 include("../configuration/new_connection.php");
 
 // Coletar os dados do formulário
-$cpf = mysqli_real_escape_string($conn, $_POST['cpf']);
+$endereco_email = mysqli_real_escape_string($conn, $_POST['endereco_email']);
 $senha = mysqli_real_escape_string($conn, $_POST['senha']);
 
 //Monta e executa uma consulta SQL.
-$SQL = "SELECT senha FROM funcionario WHERE cpf = '$cpf';";
+$SQL = "SELECT senha FROM usuario WHERE endereco_email = '$endereco_email';";
 $consulta = mysqli_query($conn, $SQL);
 //Verifica se a consulta deu certo e retorna algo.
 if ($consulta) {
@@ -25,11 +25,11 @@ if ($consulta) {
         }
         //Fecha a conexão com o BD.
         mysqli_close($conn);
-        //Armazenar o email do usuário em uma variável de sessão.
+        //Armazenar o cpf do usuário em uma variável de sessão.
         $_SESSION['cpf'] = $cpf;
         echo "<script>alert('OK');</script>";
         //Redireciona o usuário para a sessão restrita 
-        //header("location: ../session/estoque/dashboard.php");
+        header("location: ../session/dashboard.php");
     } else {
         //Fecha a conexão com o BD.
         mysqli_close($conn);

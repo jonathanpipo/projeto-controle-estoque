@@ -132,27 +132,6 @@
             <p>
               <span class="fw-semibold  fs-5 letter-space">(14) 99999-9999</span>
             </p>
-
-            <!-- BOTOES REDES SOCIAIS - IMPLEMENTAR
-            <div class="d-flex gap-3 justify-content-center">
-              <p class="footer-redes-sociais-icon ">
-                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 28px;"><i class="fab fa-facebook mb-3 icon-shadow text-dark"></i></a>
-              </p>
-              
-              <p class="footer-redes-sociais-icon">
-                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 28px;"><i class="fab fa-twitter mb-3"></i></a>
-              </p>
-              
-              <p class="footer-redes-sociais-icon">
-                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 28px;"><i class="fab fa-google-plus mb-3"></i></a>
-              </p>
-              
-              <p class="footer-redes-sociais-icon">
-                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 28px;"><i class="fab fa-linkedin-in mb-3"></i></a>
-              </p>
-            </div>
-             BOTOES REDES SOCIAIS - IMPLEMENTAR -->
-
           </div>
         </div>
         <hr class="mb-4">
