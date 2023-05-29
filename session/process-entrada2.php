@@ -8,11 +8,11 @@ include("../configuration/userSession.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Obter os valores dos inputs
         $nome_produto = $_POST["nome_produto"];
-        $quantidade_estoque = $_POST["quantidade_estoque"];
+        $quantidade_entrada = $_POST["quantidade_entrada"];
 
         // Comando SQL para inserir registro na tabela
-        $sql = "INSERT INTO produto (nome_produto, quantidade_estoque)
-                VALUES ('$nome_produto', '$quantidade_estoque')";
+        $sql = "INSERT INTO entrada (quantidade_entrada, nome_produto)
+                VALUES ('$quantidade_entrada', '$nome_produto')";
 
         // Executar o comando SQL e verificar se foi bem-sucedido
         if ($conn->query($sql) === TRUE) {

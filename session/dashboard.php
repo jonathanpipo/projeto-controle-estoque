@@ -46,86 +46,68 @@ include("../configuration/userSession.php");
       </div>
     </div>
   </nav>
-
   <!-- Seção do formulário -->
   <section class="position-relative background-section-login d-flex justify-content-center">
     <div class="section-login container-fluid  border border-1">
-      <div class="row" style="height: 800px;">
+      <div class="row" style="height: 1200px;">
         <div class="col p-5">
           <div class="row d-flex d-row">
-            <div class="col">
+            <div class="col-3">
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                Abrir Modal
+                Cadastro de produtos
               </button>
             </div>
-            <div class="col">
-              <button type="button" class="btn btn-light fw-bold text-uppercase shadow-sm">Remover</button>
-            </div>
-          </div>
-          <div class="row">
-            <!-- O modal -->
-            <div class="modal" id="myModal">
-              <div class="modal-dialog">
-                <div class="modal-content">
-
-                  <!-- Cabeçalho do modal -->
-                  <div class="modal-header">
-                    <h4 class="modal-title">Incluir produtos</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div class="col-9">
+                <form method="post" action="process-entrada2.php">
+                <div class="row">
+                  <div class="col">
+                  <select class="form-select" aria-label="Default select example" name="nome_produto">
+                  <!--PUXAR OS PRODUTOS CADASTRADOS PARA DENTRO DO SELECT-->
+                  <?php
+                        //Chamada de inclusão do arquivo de conexão co o BD
+                        include("../configuration/connection.php");
+                        //Instrução SQL de seleção dos usuarios.
+                        $SQL = "SELECT nome_produto FROM produto WHERE ativo = 1;";
+                        //Executa a consulta SQL.
+                        $consulta = mysqli_query($connect,$SQL);
+                        //Verifica se existem retornos na consulta SQL.
+                        if (mysqli_num_rows($consulta) > 0){
+                            //Laço de repetição dos usuarios.
+                            //Apresenta todos os usuarios do BD.
+                            while ($estoque = mysqli_fetch_assoc($consulta)){
+                                ?>
+                                <?php
+                                echo '<option value="' . $estoque['nome_produto'] . '">' . $estoque['nome_produto'] . '</option>';
+                                ?>
+                                <?php
+                            }
+                            //Fecha a conexão com o BD.
+                            mysqli_close($connect);
+                        }else{
+                            //Retorna a mensagem para o usuario.
+                            print("Não existem usuarios cadastrados no banco de dados.");
+                            //Fecha a conexão com o BD.
+                            mysqli_close($connect);
+                        }
+                        ?>
+                  </select>
                   </div>
-
-                  <!-- Corpo do modal -->
-                  <section class="container-fluid modal-body">
-                    <div class="">
-                      <div class="col-12 border border-primary bg-light shadow rounded">
-                        <h1 class="mb-5 text-center fs-3 text-uppercase fw-bold text-primary title-shadow">Entrada de Produtos</h1>
-                        <form method="post" action="process-entrada.php">
-                          <!--NOME-->
-                          <div class="input-group mb-3">
-                            <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
-                            <label for="nome" class="form-label"></label>
-                            <input type="text" class="form-control" placeholder="Nome produto" id="nome" name="nome">
-                          </div>
-                          <!--QUANTIDADE_ITENS-->
-                          <div class="input-group mb-5">
-                            <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
-                            <label for="quantidade_itens" class="form-label"></label>
-                            <input type="text" class="form-control" placeholder="Quantidade de itens" id="quantidade_itens" name="quantidade_itens">
-                          </div>
-                          <!--VALOR_COMPRA-->
-                          <div class="input-group mb-5">
-                            <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
-                            <label for="valor_compra" class="form-label"></label>
-                            <input type="text" class="form-control" placeholder="Valor Compra" id="valor_compra" name="valor_compra">
-                          </div>
-                          <!--SUBMIT-->
-                          <div class="input-group input-field mb-4 justify-content-center">
-                            <input class="btn btn-primary btn-lg mx-auto" type="submit" id="submit" value="ENVIAR" style="width: 100%;">
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-
-                  </section>
-
-                  <!-- Rodapé do modal -->
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="Quantidade" name="quantidade_entrada">
                   </div>
-
+                  <div class="col">
+                    <input type="Submit" class="form-control" placeholder="Last name">
+                  </div>
                 </div>
+                </form>
               </div>
-            </div>
+          </div>
+          <!--PRODUTOS CADASTRADOS-->
+          <div class="row">
             <section class="container py-5">
-        <div class="row justify-content-center">
-
-            <!-- Captura e apresenta os retornos para o usuario -->
-            <div class="row">
-                <div class="text-center">
-                </div>
-            </div>
-        
-
+              <div class="row justify-content-center">
+              <h1>TABELA DOS PRODUTOS CADASTRADOS</h1>
+              <h5>Apenas para testar o cadastro de produtos</h5>
                 <table>
                     <!-- Cabeçalho -->
                     <thead>
@@ -137,63 +119,141 @@ include("../configuration/userSession.php");
                             <th scope="col">Excluir</th>
                         </tr>
                     </thead>
-
                     <!-- Corpo da tabela -->
                     <tbody>
                         <?php
                         //Chamada de inclusão do arquivo de conexão co o BD
                         include("../configuration/connection.php");
-
                         //Instrução SQL de seleção dos usuarios.
                         $SQL = "SELECT id, nome_produto, quantidade_estoque FROM produto WHERE ativo = 1;";
-
                         //Executa a consulta SQL.
                         $consulta = mysqli_query($connect,$SQL);
-
                         //Verifica se existem retornos na consulta SQL.
                         if (mysqli_num_rows($consulta) > 0){
-
                             //Laço de repetição dos usuarios.
                             //Apresenta todos os usuarios do BD.
                             while ($estoque = mysqli_fetch_assoc($consulta)){
                                 ?>
-                                
                                 <tr>
                                     <td scope="row" ><?php print($estoque["id"]); ?></td>
                                     <td style="border-style:solid"><?php print($estoque["nome_produto"]); ?></td>
                                     <td><?php print($estoque["quantidade_estoque"]); ?></td>
                                     <td><a href="form-edit-produto.php?id=<?php print($estoque["id"]); ?>"><i class="bi bi-pencil-square"></i></a></td>
-                      <td><a href="process-delete-produto.php?id=<?php print($estoque["id"]); ?>"><i class="bi bi-trash3-fill"></i></a></td>
+                                    <td><a href="process-delete-produto.php?id=<?php print($estoque["id"]); ?>"><i class="bi bi-trash3-fill"></i></a></td>
                                 </tr>
                                 <?php
                             }
-
                             //Fecha a conexão com o BD.
                             mysqli_close($connect);
-
                         }else{
                             //Retorna a mensagem para o usuario.
                             print("Não existem usuarios cadastrados no banco de dados.");
-
                             //Fecha a conexão com o BD.
                             mysqli_close($connect);
                         }
                         ?>
-
                     </tbody>
                 </table> 
-            </div>     
-        </div>
-    </section>
-
+              </div>                  
+            </section>
+          </div>
+          <!--ENTRADA DE PRODUTOS-->
+          <div class="row">
+            <section class="container py-5">
+              <div class="row justify-content-center">
+              <h1>TABELA DE ENTRADA DE PRODUTOS</h1>
+              <h5>Os dados devem ser obtidos da tabela ENTRADA, em conjunto com o botao incluir</h5>
+                <table>
+                    <!-- Cabeçalho -->
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Produto</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col">Editar</th>
+                            <th scope="col">Excluir</th>
+                        </tr>
+                    </thead>
+                    <!-- Corpo da tabela -->
+                    <tbody>
+                        <?php
+                        //Chamada de inclusão do arquivo de conexão co o BD
+                        include("../configuration/connection.php");
+                        //Instrução SQL de seleção dos usuarios.
+                        $SQL = "SELECT id, quantidade_entrada, nome_produto FROM entrada";
+                        //Executa a consulta SQL.
+                        $consulta = mysqli_query($connect,$SQL);
+                        //Verifica se existem retornos na consulta SQL.
+                        if (mysqli_num_rows($consulta) > 0){
+                            //Laço de repetição dos usuarios.
+                            //Apresenta todos os usuarios do BD.
+                            while ($estoque = mysqli_fetch_assoc($consulta)){
+                                ?>
+                                <tr>
+                                    <td scope="row" ><?php print($estoque["id"]); ?></td>
+                                    <td style="border-style:solid"><?php print($estoque["nome_produto"]); ?></td>
+                                    <td><?php print($estoque["quantidade_entrada"]); ?></td>
+                                    <td><a href="form-edit-produto.php?id=<?php print($estoque["id"]); ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                    <td><a href="process-delete-produto.php?id=<?php print($estoque["id"]); ?>"><i class="bi bi-trash3-fill"></i></a></td>
+                                </tr>
+                                <?php
+                            }
+                            //Fecha a conexão com o BD.
+                            mysqli_close($connect);
+                        }else{
+                            //Retorna a mensagem para o usuario.
+                            print("Não existem usuarios cadastrados no banco de dados.");
+                            //Fecha a conexão com o BD.
+                            mysqli_close($connect);
+                        }
+                        ?>
+                    </tbody>
+                </table> 
+              </div>                  
+            </section>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!---->
-  
+  <!--MODAL-->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Cabeçalho do modal -->
+        <div class="modal-header">
+          <h4 class="modal-title">Cadastro de produtos</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Corpo do modal -->
+        <section class="container-fluid modal-body">
+            <div class="">
+              <div class="col-12">
+                <form method="post" action="process-entrada.php">
+                  <!--NOME-->
+                  <div class="input-group mb-3">
+                    <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
+                    <label for="nome_produto" class="form-label"></label>
+                    <input type="text" class="form-control" placeholder="Nome produto" id="nome_produto" name="nome_produto">
+                  </div>
+                  <!--QUANTIDADE_ITENS-->
+                  <div class="input-group mb-3">
+                    <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
+                    <label for="quantidade_estoque" class="form-label"></label>
+                    <input type="text" class="form-control" placeholder="Quantidade de itens" id="quantidade_estoque" name="quantidade_estoque">
+                  </div>
+                  <!--SUBMIT-->
+                  <div class="input-group input-field mb-4 justify-content-center container">
+                  <input class="btn btn-primary btn-lg mx-auto" type="submit" id="submit" value="ENVIAR" style="width: 100%;">
+                  </div>
+                  </form>
+              </div>
+            </div>
+        </section>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer id="#secaoContato" class="bg-primary bg-gradient text-white pt-5 pb-2">

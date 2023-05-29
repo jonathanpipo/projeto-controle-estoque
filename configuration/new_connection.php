@@ -8,36 +8,31 @@ $dbname = 'estoque_senai';
 $conn = mysqli_connect($host, $user, $password, $dbname);
 
 // Coletar os dados do formulário
-if (isset($_POST['cargo'])) {$cargo = mysqli_real_escape_string($conn, $_POST['cargo']);}
+//if (isset($_POST['cargo'])) {$cargo = mysqli_real_escape_string($conn, $_POST['cargo']);}
 
 
-if (isset($_POST['nome'])) {$nome = mysqli_real_escape_string($conn, $_POST['nome']);}
+//if (isset($_POST['nome'])) {$nome = mysqli_real_escape_string($conn, $_POST['nome']);}
 
-$email = mysqli_real_escape_string($conn, $_POST['email']);
-
-
-
-$cpf = mysqli_real_escape_string($conn, $_POST['cpf']);
+//$email = mysqli_real_escape_string($conn, $_POST['email']);
 
 
-$data_nascimento = mysqli_real_escape_string($conn, $_POST['data_nascimento']);
+
+//$cpf = mysqli_real_escape_string($conn, $_POST['cpf']);
 
 
-$telefone = mysqli_real_escape_string($conn, $_POST['telefone']);
+//$data_nascimento = mysqli_real_escape_string($conn, $_POST['data_nascimento']);
 
 
-$genero = mysqli_real_escape_string($conn, $_POST['genero']);
+//$telefone = mysqli_real_escape_string($conn, $_POST['telefone']);
 
 
-$endereco = mysqli_real_escape_string($conn, $_POST['endereco']);
+//$genero = mysqli_real_escape_string($conn, $_POST['genero']);
 
 
-$senha = mysqli_real_escape_string($conn, $_POST['senha']);
+//$endereco = mysqli_real_escape_string($conn, $_POST['endereco']);
+
+
+//$senha = mysqli_real_escape_string($conn, $_POST['senha']);
 // Validar os dados
 // ...
 ?>
-
-
-if (isset($_POST['cargo'])) {
-  $cargo = mysqli_real_escape_string($conn, $_POST['cargo']);
-}
