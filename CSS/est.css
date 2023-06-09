@@ -1,10 +1,10 @@
 @import url(./media-query.css);
 
 .inicioBackground {
-background-image: url("../img/homem-com-prancheta-no-armazem.jpg");
-background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+    background-image: url("../img/homem-com-prancheta-no-armazem.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .inicioImg {
@@ -151,4 +151,159 @@ height: 100px;
     display: inline-block;
     margin-left :10px;
     margin-right: auto;
+}
+
+.sectionform{
+  float: right;
+}
+
+.body{
+    background-color:#67D2B8;
+}
+h1{
+    font-size: 60px;
+}
+.text{
+    margin-left: 300px;
+    margin-top: 200px;
+    text-align:center;
+    color: #ffff;
+    float: left;
+    font-size: 20px;
+}
+
+.formscadastro{
+    margin: 20px;
+}
+
+.divcadastro{
+    float: right;
+    background-color: #ffff;
+    width:55%;
+    height: 950px;
+    border-radius: 20px;
+    margin: 30px;
+    float: right;
+}
+
+.pcss:hover{
+    border: none;
+    color: #489380;
+}
+
+.pcss{
+    color: #ffff;
+    margin:5px ;
+}
+
+.forms{
+margin-top: 10%;
+width: 400px;
+height: 700px;
+border-radius: 20px;
+position: relative;
+box-shadow: 30px 20px 9px #00000029;
+
+}
+
+.btnlogin:hover{
+    border:solid;
+    border-color: #489380;
+    color:#489380 ;
+
+}
+
+.btnlogin{
+background-color: #67d2b700;
+border:solid ;
+border-color:#ffff;
+border-radius: 20px;
+width: 100px;
+height: 50px;
+}
+
+.buttonlabel{
+    width: 100px;
+    height: 50px;
+   margin-left: auto;
+   margin-right: auto;
+   display: block;
+   background-color:#67D2B8; 
+   color:#ffff
+}
+
+.buttonlabel:hover{
+    background-color: #489380;
+    color: #ffff;
+}
+
+.icone{
+   margin: 10px;
+   width: 100px;
+    height: 100px;
+}
+
+.tamicone{
+    width: 29px;
+    height: 29px;
+}
+
+.welcome{
+    text-align: center;
+    margin-top: 10%;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+
+
+.retornobtn:hover{
+    background-color: rgba(0, 0, 0, 0.099);
+    border-radius: 50%;
+}
+
+.retornobtn{
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-left: -20px;
+}
+
+.lugarimg{
+    margin: 10px;
+    float: left;
+    
+}
+
+.texto{
+    text-align: center;
+    margin-top: 70px;
+    color:#67D2B8 ;
+    font-weight: bolder;
+    font-size: 70px;
+}
+
+.cadastro{
+    text-align: center;
+    margin-top: 15px;
+    color:#67D2B8 ;
+    display: inline-block;
+    margin-left: 5px;
+
+}
+.criarconta,.paragrafo{
+    display: inline-block;
+    margin-left :10px;
+    margin-right: auto;
+}
+
+.icon-et-sd{
+    width: 20px;
+    height: 20px;
+}
+
+.empresa-logo{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }

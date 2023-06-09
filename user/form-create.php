@@ -53,53 +53,61 @@
           <!--FORMS-->
           <form action="process-create.php" method="post" name="formulario-create" id="formulario-create">
             <!--CARGO-->
-            <div class="input-group mb-3">
-              <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
-              <label for="cargo" class="form-label"></label>
-              <input type="text" class="form-control" placeholder="Cargo" id="cargo" name="cargo">
-            </div>
+           
+            <!--nome , cpf , dataNascimento , cep , codigoArea , numero_celular , endereco_email , senha , ativo-->
+
             <!--NOME-->
             <div class="input-group mb-3">
               <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
               <label for="nome" class="form-label"></label>
               <input type="text" class="form-control" placeholder="Nome" id="nome" name="nome">
             </div>
-            <!--EMAIL-->
-            <div class="input-group mb-3">
-              <span class="input-group-text bg-primary"><i class="fa fa-envelope text-white"></i></span>
-              <label for="email" class="form-label"></label>
-              <input type="email" class="form-control" placeholder="E-mail" id="email" name="email">
-            </div>
+
             <!--CPF-->
             <div class="input-group mb-3">
               <span class="input-group-text bg-primary"><i class="fa fa-lock text-white"></i></span>
               <label for="cpf" class="form-label"></label>
               <input type="text" class="form-control" placeholder="CPF" id="cpf" name="cpf">
             </div>
+
             <!--DATA_NASCIMENTO-->
             <div class="input-group mb-3">
               <span class="input-group-text bg-primary"><i class="fa fa-lock text-white"></i></span>
               <label for="data_nascimento" class="form-label"></label>
-              <input type="date" class="form-control" placeholder="Data nascimento" id="data_nascimento" name="data_nascimento">
+              <input type="date" class="form-control" placeholder="Data nascimento" id="dataNascimento" name="dataNascimento">
             </div>
-            <!--TELEFONE-->
+
+            <!--CEP-->
             <div class="input-group mb-3">
+              <span class="input-group-text bg-primary"><i class="fa fa-lock text-white"></i></span>
+              <label for="cep" class="form-label"></label>
+              <input type="text" class="form-control" placeholder="CEP" id="cep" name="cep">
+            </div>
+
+            <!--Codigo area-->
+            <div class="input-group mb-3">
+            <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
+            <label for="codigoArea" class="form-label"></label>
+            <select id="codigoArea" name="codigoArea" class="form-select">
+            <option selected>Selecione o código de área...</option>
+            <option value="+55">Brasil (+55)</option>
+            </select>
+            </div>
+
+             <!--TELEFONE-->
+             <div class="input-group mb-3">
               <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
               <label for="telefone" class="form-label"></label>
-              <input type="text" class="form-control" placeholder="Telefone" id="telefone" name="telefone">
+              <input type="text" class="form-control" placeholder="Telefone" id="numero_celular" name="numero_celular">
             </div>
-            <!--GENERO-->
+
+            <!--EMAIL-->
             <div class="input-group mb-3">
-              <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
-              <label for="genero" class="form-label"></label>
-              <input type="text" class="form-control" placeholder="Genero" id="genero" name="genero">
+              <span class="input-group-text bg-primary"><i class="fa fa-envelope text-white"></i></span>
+              <label for="email" class="form-label"></label>
+              <input type="email" class="form-control" placeholder="E-mail" id="endereco_email" name="endereco_email">
             </div>
-            <!--ENDERECO-->
-            <div class="input-group mb-3">
-              <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
-              <label for="endereco" class="form-label"></label>
-              <input type="text" class="form-control" placeholder="Endereco" id="endereco" name="endereco">
-            </div>
+            
             <!--senha-->
             <div class="input-group mb-3">
               <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>

@@ -1,34 +1,88 @@
 <?php
 //Chama o arquivo de conexão com o BD.
-include("../configuration/new_connection.php");
+include("../configuration/connection.php");
 
-// Coletar os dados do formulário
-$nome = mysqli_real_escape_string($conn, $_POST['nome']);
-$cpf = mysqli_real_escape_string($conn, $_POST['cpf']);
-$data_nascimento = mysqli_real_escape_string($conn, $_POST['data_nascimento']);
-$cep = mysqli_real_escape_string($conn, $_POST['cep']);
-$codigo_area = mysqli_real_escape_string($conn, $_POST['codigo_area']);
-$numero_celular = mysqli_real_escape_string($conn, $_POST['numero_celular']);
-$endereco_email = mysqli_real_escape_string($conn, $_POST['endereco_email']);
-$senha = mysqli_real_escape_string($conn, $_POST['senha']);
+//Variáveis que irão receber os dados via POST do formulário.
+$nome = $_POST["nome"];
+$cpf = $_POST["cpf"];
+$dataNascimento = $_POST["dataNascimento"];
+$cep = $_POST["cep"];
+$codigoArea = $_POST["codigoArea"];
+$celular = $_POST["numero_celular"];
+$email = $_POST["endereco_email"];
+$senha = $_POST["senha"];
+$confirmaSenha = $_POST["confirmaSenha"];
 
 
-// Executar a consulta SQL
-$sql = "INSERT INTO usuario (nome, cpf, data_nascimento, cep, codigo_area, numero_celular, endereco_email, senha) VALUES ('$nome', '$cpf', '$data_nascimento', '$cep', '$codigo_area', '$numero_celular', '$endereco_email', '$senha')";
+//Instrução que verifica se o cpf ja existe no banco de dados
+$SQLverificaCPF = "SELECT cpf FROM usuario WHERE cpf ='$cpf';"; 
 
-// Insercao de dados
-if (mysqli_query($conn, $sql)) {
-    header("location: ../login/form-login.php" . $retorno);
-    $retorno = "Dados inseridos com sucesso!";
-    // Imprime o código JavaScript na página com a mensagem
-    echo "<script>alert('$retorno');</script>";
-    //retorna para a página de login
+//Executa a consulta do CPF
+$consultaCPF = mysqli_query($connect, $SQLverificaCPF);
 
-} else {
-    echo "Erro ao inserir dados: " . mysqli_error($conn);
+//Verifica se houve retorno da consulta ao banco de dados
+if (mysqli_num_rows($consultaCPF) > 0) {
+
+     //Encerra a conexão com o BD.
+     mysqli_close($connect);
+
+     //Redireciona a página para o login.
+     $retorno = "Usuário já cadastrado !!!";
+     header("location: ../login/form-creat.php?retorno=" . $retorno);
+    
+}else{
+
+//verifica se o usuario criou a senha corretamente
+if ($senha == $confirmaSenha) {
+
+    //Instrução SQL de inserção de dados no BD.
+    $SQL = "INSERT INTO usuario (nome, 
+            cpf, 
+            data_nascimento,  
+            cep,
+            codigo_area, 
+            numero_celular, 
+            endereco_email, 
+            senha, 
+            ativo)
+            VALUES ('" . $nome . "', 
+            '" . $cpf . "', 
+            '" . $dataNascimento . "', 
+            '" . $cep . "', 
+            '" . $codigoArea . "', 
+            '" . $celular . "', 
+            '" . $email . "', 
+            SHA1('" . $senha . "'),
+            1);";
+
+
+
+    //Faz a tentativa de inserção dos dados no BD.
+    if (mysqli_query($connect, $SQL)) {
+
+        //Encerra a conexão com o BD.
+        mysqli_close($connect);
+
+        //Redireciona a página para o login.
+        $retorno = "Usuário cadastrado com sucesso!!!";
+        header("location: ../login/form-login.php?retorno=" . $retorno);
+    } else {
+        //Encerra a conexão com o BD.
+        mysqli_close($connect);
+
+        //Redireciona a página para o login.
+        header("location: form-create.php?retorno=" . $retorno);
+    }
+}else{
+    mysqli_close($connect);
+
+     //Redireciona a página para o login.
+     $retorno = "O campo senha e confirmar senha não conferem !!!";
+     header("location: ../login/form-login.php?retorno=" . $retorno);
+}
+
 
 }
 
-// Fechar a conexão com o banco de dados
-mysqli_close($conn);
+
 ?>

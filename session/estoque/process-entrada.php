@@ -4,34 +4,34 @@
 
    //Informaçoes passadas pelo formulário.
    $id = $_POST["produto"];
-   $quantidade_saida = $_POST["quantidade_saida"];
+   $quantidade_entrada = $_POST["quantidade_entrada"];
 
-   //Instrução SQL que faz o lançamento da saida de produtos.
-   print $SQLSaida = "INSERT INTO saida (id_produto,
-                                       data_saida,
-                                       quantidade_saida,
+   //Instrução SQL que faz o lançamento da entrada de produtos.
+   print $SQLEntrada = "INSERT INTO entrada (id_produto,
+                                       data_entrada,
+                                       quantidade_entrada,
                                        ativo)
                               VALUES ('". $id ."',
                                       NOW(),
-                                      '". $quantidade_saida."',
+                                      '". $quantidade_entrada."',
                                       1);";
 
-   //Executa a instrução SQL que registra a saida de produtos.                                   
-   if (mysqli_query($connect, $SQLSaida)) {
+   //Executa a instrução SQL que registra a entrada de produtos.                                   
+   if (mysqli_query($connect, $SQLEntrada)) {
 
-      //Instrução que diminui a quantidade de estoque do produto no banco de dados.
+      //Instrução que aumenta a quantidade de estoque do produto no banco de dados.
       print $SQLProduto = "UPDATE produto SET 
-                            quantidade_estoque = quantidade_estoque - $quantidade_saida
+                            quantidade_estoque = quantidade_estoque + $quantidade_entrada
                      WHERE id = $id;";
 
-      //Executa a instrução SQL que diminui a quantidade de produtos em estoque.                                   
+      //Executa a instrução SQL que aumenta a quantidade de produtos em estoque.                                   
       if (mysqli_query($connect, $SQLProduto)) {
 
          //fecha a conexão com o BD
          mysqli_close($connect);
 
          //Cria uma mensagem de retorno da operacão.
-         $retorno = "Produtos retirados com sucesso!!!";
+         $retorno = "Produtos adicionados com sucesso!!!";
 
          //Redireciona o usuário.
          header("location: ../dashboard.php?retorno=" . $retorno);   
@@ -41,7 +41,7 @@
          mysqli_close($connect);
 
          //Cria uma mensagem de retorno da operacão.
-         $retorno = "Não foi possivel processar a saída de produto!!!";
+         $retorno = "Não foi possivel processar a entrada de produto!!!";
 
          //Redireciona o usuário.
          header("location: ../dashboard.php?retorno=" . $retorno);
@@ -53,7 +53,7 @@
       mysqli_close($connect);
 
       //Cria uma mensagem de retorno da operacão.
-      $retorno = "Não foi possivel processar a saída de produto!!!";
+      $retorno = "Não foi possivel processar a entrada de produto!!!";
 
       //Redireciona o usuário.
       header("location: ../dashboard.php?retorno=" . $retorno);

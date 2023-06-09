@@ -1,0 +1,437 @@
+.sectionform{
+    float: right;
+}
+  
+.body{
+    background-color:#67D2B8;
+}
+
+h1{
+    font-size: 60px;
+}
+
+.text{
+    margin-left: 300px;
+    margin-top: 200px;
+    text-align:center;
+    color: #ffff;
+    float: left;
+    font-size: 20px;
+}
+  
+.ahover:hover{
+    background-color: #58615f;
+}
+  
+.formscadastro{
+    margin: 20px;
+}
+  
+.divcadastro{
+    float: right;
+    background-color: #ffff;
+    width:55%;
+    height: 950px;
+    border-radius: 20px;
+    margin: 30px;
+    float: right;
+}
+  
+.pcss:hover{
+    border: none;
+    color: #489380;
+}
+  
+.pcss{
+    color: #ffff;
+    margin:5px ;
+}
+  
+.forms{
+    margin-top: 10%;
+    width: 400px;
+    height: 700px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 30px 20px 9px #00000029;  
+}
+  
+.btnlogin:hover{
+    border:solid;
+    border-color: #489380;
+    color:#489380 ;
+  
+}
+  
+.btnlogin{
+    background-color: #67d2b700;
+    border:solid ;
+    border-color:#ffff;
+    border-radius: 20px;
+    width: 100px;
+    height: 50px;
+}
+  
+.buttonlabel{
+    width: 100px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color:#67D2B8; 
+    color:#ffff
+}
+  
+  .buttonlabel:hover{
+      background-color: #489380;
+      color: #ffff;
+  }
+  
+  .icone{
+     margin: 10px;
+     width: 100px;
+  height: 100px;
+  }
+  
+  .tamicone{
+      width: 29px;
+      height: 29px;
+  }
+  
+.welcome{
+    text-align: center;
+    margin-top: 10%;
+    font-size: 30px;
+    font-weight: bolder;
+}
+  
+  
+  
+.retornobtn:hover{
+    background-color: rgba(0, 0, 0, 0.099);
+    border-radius: 50%;
+}
+  
+.retornobtn{
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-left: -20px;
+}
+  
+.lugarimg{
+    margin: 10px;
+    float: left;
+      
+}
+  
+.texto{
+    text-align: center;
+    margin-top: 70px;
+    color:#67D2B8 ;
+    font-weight: bolder;
+    font-size: 70px;
+}
+  
+.cadastro{
+    text-align: center;
+    margin-top: 15px;
+    color:#67D2B8 ;
+    display: inline-block;
+    margin-left: 5px;
+  
+}
+
+.criarconta,.paragrafo{
+    display: inline-block;
+    margin-left :10px;
+    margin-right: auto;
+}
+
+/*----------------------------------------------- Estiliza o titulo------------------------------------*/
+.titulo{
+    font-size: 45px;
+    text-align: center;
+    padding: 30px;
+}
+
+/*---------------------------------------- Botoes-------------------------------------- */
+
+.botoes{
+    justify-content:space-between;
+    text-align: center;
+}
+
+/*---------------------------------------- Botoes1-------------------------------------- */
+
+.button{
+    position: relative;
+    padding: 20px 44px;
+    margin: 100px;
+    background: aquamarine;
+    border-radius: 6px;
+    color: white;
+    border: none;
+    font-size: 30px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button:active{
+    transform: scale(0.96);
+}
+
+.button::before,
+.button::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 150%;
+    z-index: -1;
+    background-repeat: no-repeat;
+}
+.button.animate::before{
+    top: -70%;
+    background-image: radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, transparent 20%, aquamarine 20%, transparent 30%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, aquamarine 15%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 
+        18% 18%;
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 
+        40% 90%, 55% 90%, 70% 90%;
+        animation: topBubbles 0.6s ease-in-out infinite;
+}
+
+@keyframes topBubbles {
+    50% {
+        background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+        50% 50%, 65% 20%, 90% 30%;
+    }
+    100%{
+        background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+            50% 40%, 65% 10%, 90% 20%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+}
+.button.animate::after{
+    bottom: -70%;
+    background-image: radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, aquamarine 15%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%);
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+    background-position: 10% 0%, 30% 10%, 55% 0%, 70% 0%, 85% 0%,70% 0%, 70% 0%;
+    animation: bottomBubbles 0.6s ease-in-out infinite;
+}
+@keyframes bottomBubbles {
+    50% {
+        background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+            105% 0%;
+    }
+    100% {
+        background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+            110% 10%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,;
+    }
+}
+
+/*---------------------------------------- Botoes2-------------------------------------- */
+
+.button1{
+    position: relative;
+    padding: 20px 44px;
+    margin: 100px;
+    background: aquamarine;
+    border-radius: 6px;
+    color: white;
+    border: none;
+    font-size: 30px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button1:active{
+    transform: scale(0.96);
+}
+
+.button1::before,
+.button1::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 150%;
+    z-index: -1;
+    background-repeat: no-repeat;
+}
+.button1.animate::before{
+    top: -70%;
+    background-image: radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, transparent 20%, aquamarine 20%, transparent 30%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, aquamarine 15%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 
+        18% 18%;
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 
+        40% 90%, 55% 90%, 70% 90%;
+        animation: topBubbles 0.6s ease-in-out infinite;
+}
+
+@keyframes topBubbles {
+    50% {
+        background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+        50% 50%, 65% 20%, 90% 30%;
+    }
+    100%{
+        background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+            50% 40%, 65% 10%, 90% 20%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+}
+.button1.animate::after{
+    bottom: -70%;
+    background-image: radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, aquamarine 15%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%);
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+    background-position: 10% 0%, 30% 10%, 55% 0%, 70% 0%, 85% 0%,70% 0%, 70% 0%;
+    animation: bottomBubbles 0.6s ease-in-out infinite;
+}
+@keyframes bottomBubbles {
+    50% {
+        background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+            105% 0%;
+    }
+    100% {
+        background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+            110% 10%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,;
+    }
+}
+
+/*---------------------------------------- Botoes3-------------------------------------- */
+
+.button2{
+    position: relative;
+    padding: 20px 44px;
+    margin: 100px;
+    background: aquamarine;
+    border-radius: 6px;
+    color: white;
+    border: none;
+    font-size: 30px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button2:active{
+    transform: scale(0.96);
+}
+
+.button2::before,
+.button2::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 150%;
+    z-index: -1;
+    background-repeat: no-repeat;
+}
+.button2.animate::before{
+    top: -70%;
+    background-image: radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, transparent 20%, aquamarine 20%, transparent 30%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, aquamarine 15%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 
+        18% 18%;
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 
+        40% 90%, 55% 90%, 70% 90%;
+        animation: topBubbles 0.6s ease-in-out infinite;
+}
+
+@keyframes topBubbles {
+    50% {
+        background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+        50% 50%, 65% 20%, 90% 30%;
+    }
+    100%{
+        background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+            50% 40%, 65% 10%, 90% 20%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+}
+.button2.animate::after{
+    bottom: -70%;
+    background-image: radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, aquamarine 15%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%),
+        radial-gradient(circle, aquamarine 20%, transparent 20%);
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+    background-position: 10% 0%, 30% 10%, 55% 0%, 70% 0%, 85% 0%,70% 0%, 70% 0%;
+    animation: bottomBubbles 0.6s ease-in-out infinite;
+}
+@keyframes bottomBubbles {
+    50% {
+        background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+            105% 0%;
+    }
+    100% {
+        background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+            110% 10%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,;
+    }
+}
+
+/*---------------------------------------------------Lista tabela------------------------------------------------------------*/
+
+.listaRegistro{
+    display: flex;
+    justify-content: center;
+
+}
+
+thead{
+    width: 80%;
+    padding: 40px;
+    border: solid 1px #ccc;
+}
+
+tbody{
+    display: flex;
+    align-items: end;
+}

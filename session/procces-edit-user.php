@@ -6,34 +6,20 @@ include("../configuration/connection.php");
 $id = $_POST ["id"];
 $nome = $_POST["nome"];
 $cpf = $_POST["cpf"];
-$dataNascimento = $_POST["dataNascimento"];
-$genero = $_POST["genero"];
+$dataNascimento = $_POST["data_nascimento"];
 $cep = $_POST["cep"];
-$logradouro = $_POST["logradouro"];
-$complemento = $_POST["complemento"];
-$numeroResidencia = $_POST["numeroResidencia"];
-$bairro = $_POST["bairro"];
-$cidade = $_POST["cidade"];
-$estado = $_POST["estado"];
-$codigoArea = $_POST["codigoArea"];
+$codigoArea = $_POST["codigo_area"];
 $celular = $_POST["numero_celular"];
 $email = $_POST["endereco_email"];
 
 
 //Instrucão SQL que atualiza os dados do usuário.
 // Da esquerda é o nome igual ao BD e da direita o nome da variavel.
-$SQL = "UPDATE usuario 
+ $SQL = "UPDATE usuario 
         SET nome = '$nome',
             cpf = '$cpf',
             data_nascimento = '$dataNascimento',
-            genero = '$genero',
             cep = '$cep',
-            logradouro = '$logradouro',
-            complemento = '$complemento',
-            numero_residencia = '$numeroResidencia',
-            bairro = '$bairro',
-            cidade = '$cidade',
-            estado = '$estado',
             codigo_area = '$codigoArea',
             numero_celular = $celular,
             endereco_email = '$email'
@@ -50,7 +36,7 @@ if (mysqli_query($connect, $SQL)) {
 
 
    //Redireciona o usuário.
-   header("location: form-edit-user.php?retorno=" . $retorno . "&id=" . $id);
+   header("location: process-list-users.php?retorno=" . $retorno . "&id=" . $id);
 
 }else{
 
@@ -63,7 +49,7 @@ if (mysqli_query($connect, $SQL)) {
 
 
   //Redireciona o usuário.
-    header("location: form-edit-user.php?retorno=" . $retorno . "&id=" . $id);
+    header("location: process-list-users.php?retorno=" . $retorno . "&id=" . $id);
 
    
 }

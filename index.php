@@ -20,7 +20,7 @@
   <!-- MENU -->
   <nav class="navbar navbar-expand-lg body justify-content-center bg-primary bg-gradient">
     <div class="container mx-5 my-1">
-      <a class="navbar-brand text-light" href="#"><img src="img/boxicon.png" class="ahover" style="width: 59px; height: 59px;"></a>
+      <a class="navbar-brand text-light" href="#"><img src="img/boxicon.png" class="ahover" style="width: 59px; height: 59px;">Box Vault</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

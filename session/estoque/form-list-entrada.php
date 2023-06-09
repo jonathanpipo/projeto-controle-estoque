@@ -1,6 +1,6 @@
 <?php
 //Chamada para o arquivo que verifica se o usuario esta logado
-include("../configuration/userSession.php");
+include("../../configuration/connection.php");
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -8,7 +8,7 @@ include("../configuration/userSession.php");
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lista de usuários cadastrados</title>
+  <title>Controle de entrada de produtos</title>
   <link href="../CSS/est.css" rel="stylesheet">
 
   <!-- Link de referência ao CSS do Bootstrap -->
@@ -16,20 +16,19 @@ include("../configuration/userSession.php");
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-  <script src="https://www.w3schools.com/lib/w3.js"></script>
 </head>
+
 <body>
   <!-- MENU -->
   <nav class="navbar navbar-expand-lg body justify-content-center bg-primary bg-gradient shadow-sm">
     <div class="container mx-5 my-1">
-      <a class="navbar-brand text-light" href="#"><img src="../img/boxicon.png" class="empresa-logo" style="width: 59px; height: 59px;">Box Vault</a>
+      <a class="navbar-brand text-light" href="#"><img src="../../img/boxicon.png" class="empresa-logo" style="width: 59px; height: 59px;">Box Vault</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="menubtn collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav text-uppercase fw-bold">
           <a class="link-light text-dark nav-link text-light mx-3" href="../index.php">Página Inicial</a>
-          <!--buttons-->
           <div class="ms-5">
             <a href="../index.php">
               <button type="button" class="btn btn-light fw-bold text-uppercase shadow-sm">Sair</button>
@@ -45,16 +44,16 @@ include("../configuration/userSession.php");
       <div class="col-12">
         <div class="container mx-5 my-1">
           <div class="navbar-nav text-uppercase fs-5">
-            <a class="link-light text-dark nav-link text-light mx-3" href="estoque/form-list-saida.php">Lista de Saída</a>
-            <a class="link-light text-dark nav-link text-light mx-3" href="estoque/form-list-entrada.php">Lista de Entrada</a>
-            <a class="link-light text-dark nav-link text-light mx-3" href="dashboard.php">Dashboard</a>
-            <a class="link-light text-dark nav-link text-light mx-3" href="process-list-users.php">Lista de Usuario</a>
+            <a class="link-light text-dark nav-link text-light mx-3" href="form-list-saida.php">Lista de Saída</a>
+            <a class="link-light text-dark nav-link text-light mx-3" href="../estoque/form-list-entrada.php">Lista de Entrada</a>
+            <a class="link-light text-dark nav-link text-light mx-3" href="../dashboard.php">Dashboard</a>
+            <a class="link-light text-dark nav-link text-light mx-3" href="../process-list-users.php">Lista de Usuario</a>
           </div>
         </div>
       </div>
     </div>
   </nav>
-  <!-- SECTION-->
+  <!--SECTION-->
   <section class="position-relative background-section-login d-flex justify-content-center bg-light bg-gradient">
     <div class="section-login container-fluid  border border-1">
       <div class="row" style="height: auto;">
@@ -63,53 +62,47 @@ include("../configuration/userSession.php");
             <div class="row">
               <section class="container p-0 py-5">
                 <div class="border border-primary p-5 rounded shadow-sm bg-light bg-gradient">
-                  <h1 class="p-0 text-start text-uppercase mb-5">Lista de <span class="text-primary">usuários</span> cadastrados</h1>
+                  <h1 class="p-0 text-start text-uppercase mb-5">Controle de <span class="text-success">entrada</span> de produtos</h1>
                   <div class="row justify-content-start p-0">
                     <table class="table table-responsive border border-secondary-subtle p-3 shadow bg-light bg-gradient table-striped text-center">
                       <!-- Cabeçalho -->
                       <thead>
                           <tr class="text-uppercase fw-bold table-primary">
-                          <th scope="col">ID</th>
-                          <th scope="col">Nome</th>
-                          <th scope="col">CPF</th>
-                          <th scope="col">Visualizar</th>
-                          <th scope="col">Editar</th>
-                          <th scope="col">Excluir</th>
-                        </tr>
+                              <th scope="col">ID</th>
+                              <th scope="col">ID do Produto</th>
+                              <th scope="col">Quantidade de entrada</th>
+                              <th scope="col">Data de entrada</th>
+                          </tr>
                       </thead>
                       <!-- Corpo da tabela -->
-                      <tbody>  
+                      <tbody>
                         <?php
-                        //chamada de inclusao do arquivo de conexao com o db.
-                        include("../configuration/connection.php");
-                        //Instrucao SQL de selecao dos usuarios.
-                        $SQL = "SELECT id, nome, cpf FROM usuario Where ativo = 1;";
+                        //Chamada de inclusão do arquivo de conexão co o BD
+                        include("../../configuration/connection.php");
+                        //Instrução SQL de seleção dos usuarios.
+                        $SQL = "SELECT id, id_produto,data_entrada,quantidade_entrada FROM entrada";
                         //Executa a consulta SQL.
-                        $consulta = mysqli_query($connect, $SQL); 
-                        //Verifica se existem retornos na consula SQL.
-                        if (mysqli_num_rows($consulta) > 0 ) {
-                            //continua a execucão.
-                            //Laço de repeticão dos usuarios.
+                        $consulta = mysqli_query($connect,$SQL);
+                        //Verifica se existem retornos na consulta SQL.
+                        if (mysqli_num_rows($consulta) > 0){
+                            //Laço de repetição dos usuarios.
                             //Apresenta todos os usuarios do BD.
-                            while($usuario = mysqli_fetch_assoc($consulta)){
+                            while ($entrada = mysqli_fetch_assoc($consulta)){
                                 ?>
-                        <tr>
-                            <th scope="row"><?php print($usuario["id"]); ?></th>
-                              <td><?php print($usuario["nome"]); ?></td>
-                              <td><?php print($usuario["cpf"]); ?></td>
-                              <td><a href="form-view-user.php?id=<?php print($usuario["id"]); ?>"><i class="bi bi-eye-fill"></i></a></td>
-                              <td><a href="form-edit-user.php?id=<?php print($usuario["id"]); ?>"><i class="bi bi-pencil-square text-warning"></i></a></td>
-                              <td><a href="process-delete-user.php?id=<?php print($usuario["id"]); ?>"><i class="bi bi-x-circle-fill text-danger"></i></a></td>
-                        </tr>
+                                <tr>
+                                    <td scope="row" ><?php print($entrada["id"]); ?></td>
+                                    <td style="border-style:solid"><?php print($entrada["id_produto"]); ?></td>
+                                    <td><?php print($entrada["quantidade_entrada"]); ?></td>
+                                    <td><?php print($entrada["data_entrada"]); ?></td>
+                                </tr>
                                 <?php
-                                //Fecha a conexão com o BD
-                                mysqli_close($connect);
-                              }
-                        }
-                        else{
-                            //retorna a mensagem para o usuario.
-                            print("Não existem usuários cadastrados no Banco de Dados");
-                            //Fecha a conexão com o BD
+                            }
+                            //Fecha a conexão com o BD.
+                            mysqli_close($connect);
+                        }else{
+                            //Retorna a mensagem para o usuario.
+                            print("Não existem usuarios cadastrados no banco de dados.");
+                            //Fecha a conexão com o BD.
                             mysqli_close($connect);
                         }
                         ?>
@@ -130,7 +123,7 @@ include("../configuration/userSession.php");
         <div class="row text-center text-md-left align-items-center">
           <!--FOOTER-CONTAINER-IMAGE-->
           <div class="d-none d-sm-flex justify-content-center col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 text-start">
-            <img class="" src="../img/Mobile Marketing-cuate.svg" alt="" height="250" width="250">
+            <img class="" src="../../img/Mobile Marketing-cuate.svg" alt="" height="250" width="250">
           </div>
           <!--FOOTER-LINKS-UTEIS-->
           <div class="g-5 col-xs-12 col-sm-12 col-md-5 col-lg-4 col-xl-4 col-xxl-4  mx-auto text-start d-flex flex-column align-items-center justify-content-center">
@@ -183,7 +176,4 @@ include("../configuration/userSession.php");
         </div>
       </div>
   </footer>
-    <!-- Link de referência ao JS do Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-  </body>
-</html>
+</body>

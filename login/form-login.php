@@ -70,12 +70,12 @@
             <h5 class="text-center mb-5 text-primary fs-3 fw-bolder text-uppercase icon-shadow">Faça o login</h5>
             <div class="input-group mb-3">
               <span class="input-group-text bg-primary"><i class="fa fa-envelope text-white"></i></span>
-              <input type="text" class="form-control" placeholder="Email">
+              <input type="text" class="form-control" placeholder="Email" name="email" id="email">
             </div>
             <!---->
             <div class="input-group mb-3">
               <span class="input-group-text bg-primary"><i class="fa fa-lock text-white"></i></span>
-              <input type="text" class="form-control" placeholder="Senha">
+              <input type="password" class="form-control" placeholder="Senha" name="senha" id="senha">
             </div>
             <!---->
             <div class="input-group input-field mb-4">
@@ -132,6 +132,27 @@
             <p>
               <span class="fw-semibold  fs-5 letter-space">(14) 99999-9999</span>
             </p>
+
+            <!-- BOTOES REDES SOCIAIS - IMPLEMENTAR
+            <div class="d-flex gap-3 justify-content-center">
+              <p class="footer-redes-sociais-icon ">
+                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 28px;"><i class="fab fa-facebook mb-3 icon-shadow text-dark"></i></a>
+              </p>
+              
+              <p class="footer-redes-sociais-icon">
+                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 28px;"><i class="fab fa-twitter mb-3"></i></a>
+              </p>
+              
+              <p class="footer-redes-sociais-icon">
+                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 28px;"><i class="fab fa-google-plus mb-3"></i></a>
+              </p>
+              
+              <p class="footer-redes-sociais-icon">
+                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 28px;"><i class="fab fa-linkedin-in mb-3"></i></a>
+              </p>
+            </div>
+             BOTOES REDES SOCIAIS - IMPLEMENTAR -->
+
           </div>
         </div>
         <hr class="mb-4">
