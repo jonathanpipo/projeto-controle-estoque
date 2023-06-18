@@ -4,10 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CRUD - Cadastro de Usuário</title>
-
+  <title>BoxVault - Cadastro de Usuário</title>
   <!-- Link de referência ao CSS do Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../CSS/est.css">
 </head>
 
@@ -15,7 +15,7 @@
   <!-- MENU -->
   <nav class="navbar navbar-expand-lg body justify-content-center bg-primary bg-gradient">
     <div class="container mx-5 my-1">
-      <a class="navbar-brand text-light" href="#"><img src="../img/boxicon.png" class="ahover" style="width: 59px; height: 59px;"></a>
+      <i class="bi bi-box-seam-fill fs-1 text-light"></i>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -35,85 +35,90 @@
             </a>
           </div>
         </div>
-
       </div>
     </div>
   </nav>
 
   <!-- MAIN -->
-  <!--LOGIN-SECTION-->
   <section class="position-relative background-section-cadastro d-flex justify-content-center">
-    <div class="section-cadastro container border border-1 rounded shadow-lg p-5 m-5">
+    <div class="section-cadastro container border border-1 rounded shadow-lg p-5 m-5 col-6">
       <div class="row d-flex flex-wrap">
-        <img class="imagem-cadastro" src="" width="300" height="auto">
+        <img class="imagem-cadastro" src="../img/img_cadastro.svg" width="500" height="500">
       </div>
       <div class="row">
         <div class="col container-formulario">
-          <h5 class="text-center mb-5 text-primary fs-3 fw-bolder text-uppercase icon-shadow">Criar conta</h5>
+          <h5 class="text-start mb-3 text-primary fs-3 fw-bolder text-uppercase icon-shadow">Cadastre-se</h5>
           <!--FORMS-->
           <form action="process-create.php" method="post" name="formulario-create" id="formulario-create">
-            <!--CARGO-->
-           
-            <!--nome , cpf , dataNascimento , cep , codigoArea , numero_celular , endereco_email , senha , ativo-->
 
             <!--NOME-->
             <div class="input-group mb-3">
               <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
               <label for="nome" class="form-label"></label>
-              <input type="text" class="form-control" placeholder="Nome" id="nome" name="nome">
+              <input type="text" class="form-control" placeholder="Nome" id="nome" name="nome" required>
             </div>
 
             <!--CPF-->
             <div class="input-group mb-3">
               <span class="input-group-text bg-primary"><i class="fa fa-lock text-white"></i></span>
               <label for="cpf" class="form-label"></label>
-              <input type="text" class="form-control" placeholder="CPF" id="cpf" name="cpf">
+              <input type="text" class="form-control" placeholder="CPF" id="cpf" name="cpf"  required>
             </div>
 
             <!--DATA_NASCIMENTO-->
             <div class="input-group mb-3">
               <span class="input-group-text bg-primary"><i class="fa fa-lock text-white"></i></span>
               <label for="data_nascimento" class="form-label"></label>
-              <input type="date" class="form-control" placeholder="Data nascimento" id="dataNascimento" name="dataNascimento">
+              <input type="date" class="form-control" placeholder="Data nascimento" id="dataNascimento" name="dataNascimento"  required>
             </div>
 
             <!--CEP-->
             <div class="input-group mb-3">
               <span class="input-group-text bg-primary"><i class="fa fa-lock text-white"></i></span>
               <label for="cep" class="form-label"></label>
-              <input type="text" class="form-control" placeholder="CEP" id="cep" name="cep">
+              <input type="text" class="form-control" placeholder="CEP" id="cep" name="cep"  required>
             </div>
 
-            <!--Codigo area-->
+            <!--CODIGO DE AREA-->
             <div class="input-group mb-3">
-            <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
-            <label for="codigoArea" class="form-label"></label>
-            <select id="codigoArea" name="codigoArea" class="form-select">
-            <option selected>Selecione o código de área...</option>
-            <option value="+55">Brasil (+55)</option>
-            </select>
+              <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
+              <label for="codigoArea" class="form-label"></label>
+              <select id="codigoArea" name="codigoArea" class="form-select">
+                <option selected>Selecione o código de área...</option>
+                <option value="+55">Estados Unidos (+1)</option>
+                <option value="+55">China (+86)</option>
+                <option value="+55">Rússia (+7)</option>
+                <option value="+55">Alemanha (+49)</option>
+                <option value="+55">Reino Unido (+44)</option>
+                <option value="+55">França (+33)</option>
+                <option value="+55">Japáo (+81)</option>
+                <option value="+55">Índia(+91)</option>
+                <option value="+55">Brasil (+55)</option>
+                <option value="+55">Canadá (+1)</option>
+              </select>
             </div>
 
              <!--TELEFONE-->
              <div class="input-group mb-3">
               <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
               <label for="telefone" class="form-label"></label>
-              <input type="text" class="form-control" placeholder="Telefone" id="numero_celular" name="numero_celular">
+              <input type="text" class="form-control" placeholder="Telefone" id="numero_celular" name="numero_celular" required>
             </div>
 
             <!--EMAIL-->
             <div class="input-group mb-3">
               <span class="input-group-text bg-primary"><i class="fa fa-envelope text-white"></i></span>
               <label for="email" class="form-label"></label>
-              <input type="email" class="form-control" placeholder="E-mail" id="endereco_email" name="endereco_email">
+              <input type="email" class="form-control" placeholder="E-mail" id="endereco_email" name="endereco_email" required>
             </div>
             
-            <!--senha-->
+            <!-- SENHA -->
             <div class="input-group mb-3">
               <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
               <label for="senha" class="form-label"></label>
-              <input type="password" class="form-control" placeholder="senha" id="senha" name="senha">
+              <input type="password" class="form-control" placeholder="senha" id="senha" name="senha" required>
             </div>
+
             <!--SUBMIT-->
             <div class="input-group input-field mb-4 justify-content-center">
               <input class="btn btn-primary btn-lg" type="submit" id="submit" value="Cadastrar-se">
@@ -206,6 +211,16 @@
   </footer>
   <!-- Link de referência ao JS do Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  
+  <!--VALIDAÇõES-->
+  <script>
+    //EMAIL
+    var emailInput = document.getElementById('endereco_email');
+    emailInput.addEventListener('blur', function() {
+      var email = emailInput.value;
+      if (!/\S+@\S+\.\S+/.test(email)) {alert('Esse não é um formato de e-mail válido.');}});
+
+</script>
 </body>
 
 </html>

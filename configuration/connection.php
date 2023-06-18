@@ -4,10 +4,8 @@
         $user = "root";
         $password = "";
         $database = "estoque_senai";
-
         //Comando de conexão com o banco de dados MySQL.
         $connect = mysqli_connect($host, $user, $password, $database);
-
         //Retorna o código do erro de conexão com a base de dados.
         if(!$connect){
             print("Falha na conexão com a base de dados... Código do erro: " . mysqli_connect_errno());

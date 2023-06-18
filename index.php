@@ -1,36 +1,35 @@
 <!doctype html>
 <html lang="pt-br">
 
-<!-- MENU -->
-
+<!-- HEAD -->
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CRUD - Index</title>
-
+  <title>BoxVault</title>
   <!-- Link de referência ao CSS do Bootstrap -->
   <link href="CSS/est.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxxxxxx" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
 </head>
-<!-- BODY -->
 
+<!-- BODY -->
 <body>
+
   <!-- MENU -->
   <nav class="navbar navbar-expand-lg body justify-content-center bg-primary bg-gradient">
     <div class="container mx-5 my-1">
-      <a class="navbar-brand text-light" href="#"><img src="img/boxicon.png" class="ahover" style="width: 59px; height: 59px;">Box Vault</a>
+    <i class="bi bi-box-seam-fill fs-1 text-light"></i>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="menubtn collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav text-uppercase fw-bold">
-          <a class="link-light text-dark nav-link text-light mx-3" href="#">Início</a>
-          <a class="link-light text-dark nav-link text-light mx-3" href="#">Sobre</a>
-          <a class="link-light text-dark nav-link text-light mx-3" href="#">Recursos</a>
-          <a class="link-light text-dark nav-link text-light mx-3" href="#">Contato</a>
-          <!--buttons-->
+          <a class="link-light text-dark nav-link text-light mx-3" href="#menu-inicio">Início</a>
+          <a class="link-light text-dark nav-link text-light mx-3" href="#menu-sobre">Sobre</a>
+          <a class="link-light text-dark nav-link text-light mx-3" href="#menu-recursos">Recursos</a>
+          <a class="link-light text-dark nav-link text-light mx-3" href="#menu-contato">Contato</a>
           <div class="ms-5">
             <a href="user/form-create.php">
               <button type="button" class="btn btn-light fw-bold text-uppercase shadow-sm">Cadastrar</button>
@@ -44,14 +43,16 @@
       </div>
     </div>
   </nav>
+
   <!-- MAIN -->
   <main class="container-fluid p-0">
+
     <!--PRIMEIRA SECTION-->
-    <section id="#secaoInicio" class="container-fluid p-0 text-center bg-light py-5">
+    <section id="menu-inicio" class="container-fluid p-0 text-center bg-light py-5">
       <div class="container">
         <div class="row flex-column flex-md-row">
           <div class="col d-flex flex-column justify-content-center sm-12 md-12 lg-12">
-            <h1 class="text-start mb-3 fw-semibold">Otimize sua gestão de estoque com nosso sistema intuitivo e fácil de usar.</h1>
+            <h1 class="text-start mb-3 fw-semibold text-primary title-shadow">Otimize sua gestão de estoque com nosso sistema intuitivo e fácil de usar.</h1>
             <p class="text-start mb-3 fs-5">Gerencie seu estoque de forma eficiente e rentável com nosso sistema intuitivo e fácil de usar, com monitoramento de níveis, rastreamento de movimentos e relatórios avançados para tomada de decisões informadas. Tranquilidade garantida.</p>
             <div class="inicioBtn text-start">
               <button type="button" class="btn btn-outline-primary me-2">Entre em contato</button>
@@ -64,8 +65,9 @@
         </div>
       </div>
     </section>
+
     <!--SEGUNDA SECTION-->
-    <section id="#secaoSobre" class="container-fluid p-0 text-center bg-primary bg-gradient  py-5">
+    <section id="menu-sobre" class="container-fluid p-0 text-center bg-primary bg-gradient  py-5">
       <div class="container">
         <div class="row flex-column flex-md-row">
 
@@ -89,8 +91,9 @@
       </div>
       </div>
     </section>
+
     <!--TERCEIRA SECTION-->
-    <section id="#secaoRecursos" class="container-fluid p-0 text-center bg-light  py-5">
+    <section id="menu-recursos" class="container-fluid p-0 text-center bg-light  py-5">
       <div class="container py-5">
         <!--row titulo-->
         <div class="row">
@@ -139,22 +142,10 @@
         </div>
       </div>
     </section>
-    <!--QUARTA SECTION - IMPLEMENTAR
-    <section class="container-fluid p-0 text-center bg-success">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <h1>Orçamento</h1>
-            <p>Interessado em entrar em contato com um de nossos profissionais?</p>
-            <a href="#" class="btn btn-primary">Entre em contato</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    QUARTA SECTION - IMPLEMENTAR-->
   </main>
+
   <!-- FOOTER -->
-  <footer id="#secaoContato" class="bg-primary bg-gradient text-white pt-5 pb-2">
+  <footer id="menu-contato" class="bg-primary bg-gradient text-white pt-5 pb-2">
     <div class="container text-center text-md-left">
       <div class="row text-center text-md-left align-items-center">
         <!--FOOTER-CONTAINER-IMAGE-->
@@ -233,6 +224,7 @@
       </div>
     </div>
   </footer>
+  
   <!-- Link de referência ao JS do Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>

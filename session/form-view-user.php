@@ -47,7 +47,7 @@ include("../configuration/userSession.php");
   <!-- MENU -->
   <nav class="navbar navbar-expand-lg body justify-content-center bg-primary bg-gradient">
     <div class="container mx-5 my-1">
-      <a class="navbar-brand text-light" href="#"><img src="../img/boxicon.png" class="ahover" style="width: 59px; height: 59px;">Box Vault</a>
+    <i class="bi bi-box-seam-fill fs-1 text-light"></i>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -69,12 +69,11 @@ include("../configuration/userSession.php");
     <!--SECTION-->
     <section class="position-relative background-section-login d-flex justify-content-center bg-light bg-gradient">
       <div class="section-login container-fluid  border border-1">
-        <div class="row" style="height: auto;">
-          <div class="col p-5">
-            <div class="border border-primary p-5 rounded shadow-sm bg-primary bg-gradient">
+        <div class="row justify-content-center" style="height: auto;">
+          <div class="col-8 p-5">
               <div class="row">
                 <section class="container p-0 py-5">
-                  <div class="border border-primary p-5 rounded shadow-sm bg-light bg-gradient">
+                  <div class="border border-secondary p-5 rounded shadow-sm bg-light bg-gradient shadow-lg bg-body-tertiary rounded">
                   <h1 class="p-0 text-start text-uppercase mb-5">Informações de cadastro de <span class="text-primary"><?php print($usuario["nome"]); ?></span></h1>
                     <div class="row justify-content-start">
                         <div class="row justify-content-center p-0">
@@ -135,7 +134,6 @@ include("../configuration/userSession.php");
                   </div>
                 </section>
               </div>
-            </div>
           </div>
         </div>
       </div>

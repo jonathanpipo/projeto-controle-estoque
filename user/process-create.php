@@ -11,8 +11,6 @@ $codigoArea = $_POST["codigoArea"];
 $celular = $_POST["numero_celular"];
 $email = $_POST["endereco_email"];
 $senha = $_POST["senha"];
-$confirmaSenha = $_POST["confirmaSenha"];
-
 
 //Instrução que verifica se o cpf ja existe no banco de dados
 $SQLverificaCPF = "SELECT cpf FROM usuario WHERE cpf ='$cpf';"; 
@@ -28,12 +26,12 @@ if (mysqli_num_rows($consultaCPF) > 0) {
 
      //Redireciona a página para o login.
      $retorno = "Usuário já cadastrado !!!";
-     header("location: ../login/form-creat.php?retorno=" . $retorno);
+     header("location: ../login/form-create.php?retorno=" . $retorno);
     
 }else{
 
 //verifica se o usuario criou a senha corretamente
-if ($senha == $confirmaSenha) {
+if ($senha) {
 
     //Instrução SQL de inserção de dados no BD.
     $SQL = "INSERT INTO usuario (nome, 
@@ -80,9 +78,5 @@ if ($senha == $confirmaSenha) {
      $retorno = "O campo senha e confirmar senha não conferem !!!";
      header("location: ../login/form-login.php?retorno=" . $retorno);
 }
-
-
 }
-
-
 ?>

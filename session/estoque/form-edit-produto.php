@@ -26,15 +26,13 @@ $id = $_GET["id"];
 $SQL = "SELECT nome_produto, quantidade_estoque
         FROM produto
         WHERE id = $id;";
-
 //Executa a instrucão SQL.
 $consulta = mysqli_query($connect, $SQL);
 $estoque = mysqli_fetch_assoc($consulta);
 //Recupera a mensagem de retorno
-$retorno = $_GET ["retorno"];
-
+//$retorno = $_GET ["retorno"];
 //Verifica se tem um retorno e executa-o caso haja um
-if (isset($retorno)) {
+/*if (isset($retorno)) {
     print(
     '
     <div class="container justify-content-center mt-5">
@@ -45,30 +43,33 @@ if (isset($retorno)) {
     '
     );
     }
+    */
 ?>
 
   <!-- MENU -->
-  <nav class="navbar navbar-expand-lg body justify-content-center bg-primary bg-gradient">
+  <nav class="navbar navbar-expand-lg body justify-content-center bg-primary bg-gradient shadow-sm mb-5">
     <div class="container mx-5 my-1">
-      <a class="navbar-brand text-light" href="#"><img src="../../img/boxicon.png" class="ahover" style="width: 59px; height: 59px;">Box Vault</a>
+    <i class="bi bi-box-seam-fill fs-1 text-light"></i>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="menubtn collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav text-uppercase fw-bold">
-          <a class="link-light text-dark nav-link text-light mx-3" href="./form-estoque.php">Controle do Estoque</a>
-          <a class="link-light text-dark nav-link text-light mx-3" href="form-entrada.php">Entrada de produtos</a>
-          <a class="link-light text-dark nav-link text-light mx-3" href="./form-saida.php">Saída de produtos</a>
+        <a class="link-light text-dark nav-link text-light mx-3" href="../dashboard.php">Voltar ao estoque</a>
           <!--buttons-->
+          <div class="ms-5">
+            <a href="../index.php">
+              <button type="button" class="btn btn-light fw-bold text-uppercase shadow-sm">Sair</button>
+            </a>
+          </div>
         </div>
-
       </div>
     </div>
   </nav>
 <body>
 
 <?php
-    //Recupera a variavel via metodo GET.
+ /*   //Recupera a variavel via metodo GET.
     $retorno = $_GET["retorno"];
 
     //Verifica a variavel possui valor e a apresenta.
@@ -86,47 +87,39 @@ if (isset($retorno)) {
         ');
       
     }
+    */
   ?>
 
   <section class="container-fluid">
     <div class="container">
       <div class="row d-flex align-items-center justify-content-center">
-        <div class="col-10 col-md-6 col-lg-4 border border-primary m-5 p-3 p-md-4 p-lg-5 bg-light shadow rounded">
-          <h1 class="mb-5 text-center fs-3 text-uppercase fw-bold text-primary title-shadow">Editar Produtos</h1>
-
-  <form action="process-edit-produto.php" method="post">
-    
-    
-    <div class="input-group mb-3">
+        <div class="col-10 col-md-6 col-lg-4 border border-secondary m-5 p-3 p-md-4 p-lg-5 bg-light bg-gradient shadow-lg bg-body-tertiary rounded">
+          <h1 class="mb-5 text-center fs-3 text-uppercase fw-bold text-primary title-shadow">Editar Produto</h1>
+          <form action="process-edit-produto.php" method="post">
+            <div class="input-group mb-3">
               <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
               <label for="nome" class="form-label"></label>
               <input type="text" class="form-control" id="id_produto" name="nome_produto" value="<?php print ($estoque['nome_produto'])?>">
-    </div>
-  
-    <input type="hidden" class="form-control" id="id" name="id" value= "<?php print($id); ?>">
-
-
-    <br>
-
-    <div class="input-group mb-5">
+            </div>
+            <input type="hidden" class="form-control" id="id" name="id" value= "<?php print($id); ?>">
+            <br>
+            <div class="input-group mb-5">
               <span class="input-group-text bg-primary"><i class="fa fa-user text-white"></i></span>
               <label for="quantidade_itens" class="form-label"></label>
               <input type="number" class="form-control" placeholder="Unidades" id="quantidade_estoque" name="quantidade_estoque">
             </div>
-
- 
-    <div class="input-group input-field mb-4 justify-content-center">
+            <div class="input-group input-field mb-4 justify-content-center">
               <input class="btn btn-primary btn-lg mx-auto" type="submit" id="submit" value="ENVIAR" style="width: 100%;">
             </div>
-  </form>
-  </div>
+          </form>
+        </div>
       </div>
     </div>
   </section>
   
 
    <!-- FOOTER -->
-   <footer id="#secaoContato" class="bg-primary bg-gradient text-white pt-5 pb-2">
+   <footer id="#secaoContato" class="bg-primary bg-gradient text-white pt-5 pb-2 mt-5">
     <div class="container text-center text-md-left">
       <div class="row text-center text-md-left align-items-center">
         <!--FOOTER-CONTAINER-IMAGE-->

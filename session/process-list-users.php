@@ -22,7 +22,7 @@ include("../configuration/userSession.php");
   <!-- MENU -->
   <nav class="navbar navbar-expand-lg body justify-content-center bg-primary bg-gradient shadow-sm">
     <div class="container mx-5 my-1">
-      <a class="navbar-brand text-light" href="#"><img src="../img/boxicon.png" class="empresa-logo" style="width: 59px; height: 59px;">Box Vault</a>
+    <i class="bi bi-box-seam-fill fs-1 text-light"></i>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -40,14 +40,14 @@ include("../configuration/userSession.php");
     </div>
   </nav>
   <!-- SUBMENU SESSÃO-->
-  <nav style="--bs-bg-opacity: .5;" class="navbar navbar-expand-lg body justify-content-center  bg-info bg-gradient">
+  <nav style="--bs-bg-opacity: .5;" class="navbar navbar-expand-lg body justify-content-center bg-primary bg-gradient bg-primary-subtle">
     <div class="row">
       <div class="col-12">
         <div class="container mx-5 my-1">
           <div class="navbar-nav text-uppercase fs-5">
             <a class="link-light text-dark nav-link text-light mx-3" href="estoque/form-list-saida.php">Lista de Saída</a>
             <a class="link-light text-dark nav-link text-light mx-3" href="estoque/form-list-entrada.php">Lista de Entrada</a>
-            <a class="link-light text-dark nav-link text-light mx-3" href="dashboard.php">Dashboard</a>
+            <a class="link-light text-dark nav-link text-light mx-3" href="dashboard.php">Estoque</a>
             <a class="link-light text-dark nav-link text-light mx-3" href="process-list-users.php">Lista de Usuario</a>
           </div>
         </div>
@@ -57,15 +57,14 @@ include("../configuration/userSession.php");
   <!-- SECTION-->
   <section class="position-relative background-section-login d-flex justify-content-center bg-light bg-gradient">
     <div class="section-login container-fluid  border border-1">
-      <div class="row" style="height: auto;">
-        <div class="col p-5">
-          <div class="border border-primary p-5 rounded shadow-sm bg-primary bg-gradient">
+      <div class="row justify-content-center" style="height: auto;">
+        <div class="col-8 p-5">
             <div class="row">
               <section class="container p-0 py-5">
-                <div class="border border-primary p-5 rounded shadow-sm bg-light bg-gradient">
-                  <h1 class="p-0 text-start text-uppercase mb-5">Lista de <span class="text-primary">usuários</span> cadastrados</h1>
-                  <div class="row justify-content-start p-0">
-                    <table class="table table-responsive border border-secondary-subtle p-3 shadow bg-light bg-gradient table-striped text-center">
+              <div class="border border-secondary p-5 rounded shadow-sm bg-light bg-gradient shadow-lg bg-body-tertiary rounded">
+                  <h1 class="p-0 text-start text-uppercase mb-3">Lista de <span class="text-primary">usuários</span> cadastrados</h1>
+                  <div class="row justify-content-start p-0 table-responsive">
+                    <table class="table border border-secondary-subtle p-3 shadow bg-light bg-gradient table-striped text-center">
                       <!-- Cabeçalho -->
                       <thead>
                           <tr class="text-uppercase fw-bold table-primary">
@@ -78,7 +77,7 @@ include("../configuration/userSession.php");
                         </tr>
                       </thead>
                       <!-- Corpo da tabela -->
-                      <tbody>  
+                      <tbody class="table-group-divider">  
                         <?php
                         //chamada de inclusao do arquivo de conexao com o db.
                         include("../configuration/connection.php");
@@ -103,7 +102,6 @@ include("../configuration/userSession.php");
                         </tr>
                                 <?php
                                 //Fecha a conexão com o BD
-                                mysqli_close($connect);
                               }
                         }
                         else{
@@ -119,7 +117,6 @@ include("../configuration/userSession.php");
                 </div>
               </section>
             </div>
-          </div>
         </div>
       </div>
     </div>

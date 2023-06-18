@@ -8,6 +8,7 @@
 
   <!-- Link de referência ao CSS do Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../CSS/est.css">
 </head>
 
@@ -30,10 +31,24 @@
 
   }
   ?>
+  
+  <?php
+  //Verifica se a sessão de usuario existe
+  if(!isset($_SESSION)){
+      //Caso ela não exite, cria a sessão de usuario.
+      session_start();
+      //Verifica se o usuario fez o login
+      if(isset($_SESSION["usuarioEmail"])){
+          //Caso o usuario não tenha feito o login, rediciona ele para o login
+          header("Location:../session/dashboard.php");
+      }
+  }
+  ?>
+
   <!-- MENU -->
   <nav class="navbar navbar-expand-lg body justify-content-center bg-primary bg-gradient">
     <div class="container mx-5 my-1">
-      <a class="navbar-brand text-light" href="#"><img src="../img/boxicon.png" class="ahover" style="width: 59px; height: 59px;"></a>
+      <i class="bi bi-box-seam-fill fs-1 text-light"></i>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -62,30 +77,30 @@
   <section class="position-relative background-section-login d-flex justify-content-center">
     <div class="section-login container p-5 border border-1 rounded shadow-lg m-5">
       <div class="row">
-        <div class="col-md-6 col-sm-12 p-0">
-          <img class="imagem-login img-fluid" src="../img/imagem-login.jpg" alt="">
-        </div>
-        <div class="col-md-6 col-sm-12  p-0 d-flex justify-content-center align-items-center">
-          <form action="process-login.php" method="post">
-            <h5 class="text-center mb-5 text-primary fs-3 fw-bolder text-uppercase icon-shadow">Faça o login</h5>
-            <div class="input-group mb-3">
-              <span class="input-group-text bg-primary"><i class="fa fa-envelope text-white"></i></span>
-              <input type="text" class="form-control" placeholder="Email" name="email" id="email">
-            </div>
-            <!---->
-            <div class="input-group mb-3">
-              <span class="input-group-text bg-primary"><i class="fa fa-lock text-white"></i></span>
-              <input type="password" class="form-control" placeholder="Senha" name="senha" id="senha">
-            </div>
-            <!---->
-            <div class="input-group input-field mb-4">
-              <input class="btn btn-primary btn-lg" type="submit" id="submit" value="Entrar" style="width: 100%;">
-            </div>
-            <div class="signin">
-              <span>Já tem uma conta? <a href="#">Criar agora</a></span>
-            </div>
-          </form>
-        </div>
+          <div class="col-md-6 col-sm-12 p-0">
+            <img class="imagem-login img-fluid" src="../img/imagem-login.jpg" alt="">
+          </div>
+          <div class="col-md-6 col-sm-12  p-0 d-flex justify-content-center align-items-center">
+            <form action="process-login.php" method="post">
+              <h5 class="text-center mb-5 text-primary fs-3 fw-bolder text-uppercase icon-shadow">Faça o login</h5>
+              <div class="input-group mb-3">
+                <span class="input-group-text bg-primary"><i class="fa fa-envelope text-white"></i></span>
+                <input type="text" class="form-control" placeholder="Email" name="email" id="email">
+              </div>
+              <!---->
+              <div class="input-group mb-3">
+                <span class="input-group-text bg-primary"><i class="fa fa-lock text-white"></i></span>
+                <input type="password" class="form-control" placeholder="Senha" name="senha" id="senha">
+              </div>
+              <!---->
+              <div class="input-group input-field mb-4">
+                <input class="btn btn-primary btn-lg" type="submit" id="submit" value="Entrar" style="width: 100%;">
+              </div>
+              <div class="signin">
+                <span>Já tem uma conta? <a href="#">Criar agora</a></span>
+              </div>
+            </form>
+          </div>
       </div>
     </div>
   </section>

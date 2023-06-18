@@ -23,16 +23,12 @@
       print $SQLProduto = "UPDATE produto SET 
                             quantidade_estoque = quantidade_estoque + $quantidade_entrada
                      WHERE id = $id;";
-
       //Executa a instrução SQL que aumenta a quantidade de produtos em estoque.                                   
       if (mysqli_query($connect, $SQLProduto)) {
-
          //fecha a conexão com o BD
          mysqli_close($connect);
-
          //Cria uma mensagem de retorno da operacão.
          $retorno = "Produtos adicionados com sucesso!!!";
-
          //Redireciona o usuário.
          header("location: ../dashboard.php?retorno=" . $retorno);   
       }else{
@@ -46,7 +42,6 @@
          //Redireciona o usuário.
          header("location: ../dashboard.php?retorno=" . $retorno);
       }
-
    }else{
 
       //fecha a conexão com o BD
